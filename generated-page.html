@@ -1,0 +1,402 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Reconstruction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-[#f8f9fa] text-gray-800 antialiased min-h-screen flex overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white border-r border-gray-200 flex-col flex hidden lg:flex h-screen overflow-y-auto">
+        <!-- Logo -->
+        <div class="h-16 flex items-center px-6 border-b border-transparent">
+            <div class="flex items-center gap-2 text-xl font-medium tracking-tight">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.5L21.5 8V19L12 24.5L2.5 19V8L12 2.5Z" stroke="#7c3aed" stroke-width="2.5"></path>
+                    <circle cx="12" cy="13.5" r="3.5" fill="#7c3aed"></circle>
+                </svg>
+                Incircle
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-base font-normal text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-colors">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                Home
+            </a>
+            
+            <div class="space-y-1">
+                <button class="w-full flex items-center justify-between px-3 py-2 text-base font-medium bg-[#f5f3ff] text-[#7c3aed] rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="bar-chart-2" class="w-5 h-5 text-[#7c3aed]"></i>
+                        Reports
+                    </div>
+                    <i data-lucide="chevron-up" class="w-4 h-4 text-[#7c3aed]"></i>
+                </button>
+                <div class="pt-1 pb-2 space-y-1">
+                    <a href="#" class="flex items-center gap-3 pl-11 py-1.5 text-sm font-medium text-[#7c3aed]">
+                        <div class="w-1.5 h-1.5 rounded-full bg-[#7c3aed]"></div>
+                        Sales Summary
+                    </a>
+                    <a href="#" class="flex items-center gap-3 pl-11 py-1.5 text-sm font-normal text-gray-400 hover:text-gray-600 transition-colors">
+                        <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+                        Sales Trends
+                    </a>
+                    <a href="#" class="flex items-center gap-3 pl-11 py-1.5 text-sm font-normal text-gray-400 hover:text-gray-600 transition-colors">
+                        <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+                        Item Sales
+                    </a>
+                    <a href="#" class="flex items-center gap-3 pl-11 py-1.5 text-sm font-normal text-gray-400 hover:text-gray-600 transition-colors">
+                        <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+                        Employee Sales
+                    </a>
+                </div>
+            </div>
+
+            <a href="#" class="flex items-center justify-between px-3 py-2 text-base font-normal text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-colors">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                    Invoices
+                </div>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400"></i>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-base font-normal text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-colors">
+                <i data-lucide="box" class="w-5 h-5"></i>
+                Transactions
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-base font-normal text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-colors">
+                <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+                Balance
+            </a>
+            <a href="#" class="flex items-center justify-between px-3 py-2 text-base font-normal text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-colors">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                    Schedule
+                </div>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400"></i>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-base font-normal text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-colors">
+                <i data-lucide="layers" class="w-5 h-5"></i>
+                Item
+            </a>
+            <a href="#" class="flex items-center justify-between px-3 py-2 text-base font-normal text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-colors">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                    Order
+                </div>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400"></i>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-base font-normal text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-colors">
+                <i data-lucide="grid" class="w-5 h-5"></i>
+                Account &amp; Setting
+            </a>
+        </nav>
+
+        <!-- Promo Widget -->
+        <div class="m-6 mt-auto p-5 bg-[#faf5ff] rounded-2xl flex flex-col items-center text-center">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-3 shadow-sm shadow-purple-100">
+                <i data-lucide="rocket" class="w-8 h-8 text-[#7c3aed] fill-purple-100"></i>
+            </div>
+            <h4 class="text-base font-medium text-gray-900 mb-1">Get premium features</h4>
+            <p class="text-xs text-gray-500 mb-4 px-2">Get premium for access all features in there.</p>
+            <button class="w-full py-2.5 bg-[#7c3aed] hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition-colors">
+                Get premium now
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
+        <!-- Top Header -->
+        <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 lg:px-8 z-10 shrink-0">
+            <div class="flex items-center gap-4 flex-1">
+                <button class="lg:hidden text-gray-500">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+                <div class="relative w-full max-w-md hidden sm:block">
+                    <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" placeholder="Search" class="w-full pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-gray-300 focus:ring-0 placeholder-gray-400">
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4 lg:gap-6">
+                <button class="relative text-gray-500 hover:text-gray-700 transition-colors">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 border-2 border-white rounded-full"></span>
+                </button>
+                <button class="flex items-center gap-3 pl-2 lg:pl-4 border-l border-transparent lg:border-gray-200">
+                    <img src="https://ui-avatars.com/api/?name=Amirul+Islam&amp;background=e2e8f0&amp;color=475569" alt="User avatar" class="w-8 h-8 rounded-full object-cover relative z-10">
+                    <span class="absolute w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full translate-x-6 translate-y-3 z-20 hidden lg:block"></span>
+                    <span class="text-sm font-medium text-gray-700 hidden lg:block">Amirul Islam</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 hidden lg:block"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Scrollable Dashboard Content -->
+        <div class="flex-1 overflow-y-auto p-6 lg:p-8">
+            <div class="max-w-7xl mx-auto space-y-6">
+
+                <!-- Top Metrics Widget -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm shadow-gray-100/50">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
+                        <!-- Left Panel -->
+                        <div class="p-6 lg:p-8">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <h3 class="text-sm font-normal text-gray-500 mb-2">Total Revonuo</h3>
+                                    <div class="flex items-center gap-3 mb-1">
+                                        <span class="text-3xl font-semibold tracking-tight text-gray-900">$276,00K</span>
+                                        <div class="flex items-center gap-1 bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded text-xs font-medium">
+                                            <i data-lucide="trending-up" class="w-3 h-3"></i>
+                                            10%
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-gray-400">+ 2.44K as previous month</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="text-sm font-normal text-gray-500 mb-1">Shipped Orders</h3>
+                                        <span class="text-lg font-medium text-gray-900">4754</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-normal text-gray-500 mb-1">Unshipped Orders</h3>
+                                        <span class="text-lg font-medium text-gray-900">457</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel -->
+                        <div class="p-6 lg:p-8">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <h3 class="text-sm font-normal text-gray-500 mb-2">Total Revonuo</h3>
+                                    <div class="flex items-center gap-3 mb-1">
+                                        <span class="text-3xl font-semibold tracking-tight text-gray-900">$93,00K</span>
+                                        <div class="flex items-center gap-1 bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded text-xs font-medium">
+                                            <i data-lucide="trending-up" class="w-3 h-3"></i>
+                                            20%
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-gray-400">+ 2.44K as previous month</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="text-sm font-normal text-gray-500 mb-1">Shipped Orders</h3>
+                                        <span class="text-lg font-medium text-gray-900">454</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-normal text-gray-500 mb-1">Unshipped Orders</h3>
+                                        <span class="text-lg font-medium text-gray-900">257</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <div class="border-t border-gray-200 bg-[#f8f9fa] p-4 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2">
+                        <span class="text-sm font-medium text-gray-600">Overall Performances Point : 92</span>
+                        <a href="#" class="text-sm font-medium text-blue-500 hover:text-blue-600 hover:underline underline-offset-2">Assignments indicetors</a>
+                    </div>
+                </div>
+
+                <!-- Overview Section -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm shadow-gray-100/50">
+                    <div class="p-5 lg:px-8 border-b border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <h2 class="text-xl font-medium tracking-tight text-gray-900">Overview</h2>
+                        <button class="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-md text-sm font-normal text-gray-600 hover:bg-gray-50 transition-colors">
+                            Weekly
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-5 lg:px-8 flex flex-wrap gap-3 items-center">
+                        <button class="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-md text-sm font-normal text-gray-500 hover:bg-gray-50 transition-colors">
+                            <i data-lucide="calendar" class="w-4 h-4 text-gray-400"></i>
+                            5 Apr, 2023 - 5 May, 2023
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 ml-1"></i>
+                        </button>
+                        <button class="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-md text-sm font-normal text-gray-500 hover:bg-gray-50 transition-colors">
+                            All Products
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 ml-1"></i>
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-gray-100">
+                        <!-- Left Chart Box -->
+                        <div class="p-5 lg:p-8 flex flex-col">
+                            <div class="flex items-center gap-1.5 text-sm font-normal text-gray-500 mb-2">
+                                Avg. order value
+                                <i data-lucide="info" class="w-4 h-4 text-gray-400"></i>
+                            </div>
+                            <div class="flex items-baseline gap-3 mb-2">
+                                <span class="text-xl font-medium text-gray-900">$46.09</span>
+                                <div class="flex items-center text-sm font-medium text-gray-700">
+                                    <i data-lucide="arrow-up" class="w-4 h-4 mr-0.5"></i>
+                                    16%
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-400 mb-6">$ 42732.58 last month</p>
+                            
+                            <div class="h-48 w-full mt-auto relative">
+                                <!-- Background dashed lines -->
+                                <div class="absolute inset-0 flex justify-between">
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                </div>
+                                <!-- CSS representation of line charts -->
+                                <svg viewBox="0 0 400 100" class="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+                                    <path d="M0,80 L40,85 L80,82 L120,88 L160,85 L200,80 L230,65 L270,85 L310,75 L360,82 L400,80" fill="none" stroke="#3b82f6" stroke-width="1.5"></path>
+                                    <path d="M0,90 L40,88 L80,92 L120,95 L160,90 L200,92 L230,75 L270,95 L310,98 L360,88 L400,92" fill="none" stroke="#93c5fd" stroke-width="1.5"></path>
+                                </svg>
+                            </div>
+                            <div class="flex justify-between text-xs text-gray-400 mt-3">
+                                <span>5 Apr</span>
+                                <span>5 May</span>
+                            </div>
+                        </div>
+
+                        <!-- Right Chart Box -->
+                        <div class="p-5 lg:p-8 flex flex-col">
+                            <div class="flex items-center gap-1.5 text-sm font-normal text-gray-500 mb-2">
+                                Avg. order value
+                                <i data-lucide="info" class="w-4 h-4 text-gray-400"></i>
+                            </div>
+                            <div class="flex items-baseline gap-3 mb-2">
+                                <span class="text-xl font-medium text-gray-900">$46.09</span>
+                                <div class="flex items-center text-sm font-medium text-gray-700">
+                                    <i data-lucide="arrow-up" class="w-4 h-4 mr-0.5"></i>
+                                    16%
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-400 mb-6">$ 427873.58 last month</p>
+                            
+                            <div class="h-48 w-full mt-auto relative">
+                                <!-- Background dashed lines -->
+                                <div class="absolute inset-0 flex justify-between">
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                    <div class="border-l border-dashed border-gray-200 h-full"></div>
+                                </div>
+                                <!-- CSS representation of area charts -->
+                                <svg viewBox="0 0 400 100" class="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+                                    <!-- Light purple background area -->
+                                    <path d="M0,100 L0,90 L40,88 L80,92 L120,85 L160,82 L200,65 L240,85 L280,75 L320,85 L360,70 L400,80 L400,100 Z" fill="#e9d5ff" opacity="0.6"></path>
+                                    <!-- Darker purple foreground area -->
+                                    <path d="M0,100 L0,95 L40,92 L80,95 L120,90 L160,85 L190,45 L240,80 L280,88 L320,78 L360,88 L400,75 L400,100 Z" fill="#d8b4fe" opacity="0.8"></path>
+                                </svg>
+                            </div>
+                            <div class="flex justify-between text-xs text-gray-400 mt-3">
+                                <span>5 Apr</span>
+                                <span>5 May</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer List Section -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm shadow-gray-100/50">
+                    <div class="p-5 border-b border-gray-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <h2 class="text-lg font-medium tracking-tight text-gray-900">Customer List</h2>
+                        <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                            <div class="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-md text-sm font-normal text-gray-600 bg-white">
+                                Team plan
+                                <button class="text-gray-400 hover:text-gray-600"><i data-lucide="x" class="w-3 h-3"></i></button>
+                            </div>
+                            <button class="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-md text-sm font-normal text-gray-600 bg-white hover:bg-gray-50 transition-colors">
+                                <i data-lucide="filter" class="w-4 h-4 text-gray-400"></i>
+                                More filters
+                            </button>
+                            <div class="relative flex-1 md:w-48">
+                                <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                <input type="text" placeholder="3 selected" class="w-full pl-9 pr-8 py-1.5 bg-white border border-gray-200 rounded-md text-sm focus:outline-none focus:border-gray-300">
+                                <div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5 text-gray-400">
+                                    <i data-lucide="command" class="w-3 h-3"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse whitespace-nowrap">
+                            <thead>
+                                <tr class="border-b border-gray-200">
+                                    <th class="py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider w-16">No</th>
+                                    <th class="py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">Full Name - Mail</th>
+                                    <th class="py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider flex items-center gap-1">Billing Date <i data-lucide="arrow-up-down" class="w-3 h-3"></i></th>
+                                    <th class="py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">Plan</th>
+                                    <th class="py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                                    <th class="py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">Total Users</th>
+                                    <th class="py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">Details</th>
+                                    <th class="py-4 px-6 w-12"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr class="hover:bg-gray-50/50 transition-colors">
+                                    <td class="py-4 px-6 text-sm font-medium text-gray-500">01</td>
+                                    <td class="py-4 px-6">
+                                        <div class="text-sm font-medium text-gray-900">React Courses</div>
+                                        <div class="text-xs text-gray-500 mt-0.5">hwestiii@sbcglobal.net</div>
+                                    </td>
+                                    <td class="py-4 px-6 text-sm text-gray-600">1 Feb, 2023</td>
+                                    <td class="py-4 px-6">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-teal-50 text-teal-600 uppercase tracking-wider">
+                                            Team
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        <div class="text-sm font-medium text-gray-900">$ 5,000/year</div>
+                                        <div class="text-xs text-gray-500 mt-0.5">Average</div>
+                                    </td>
+                                    <td class="py-4 px-6 text-sm text-gray-600">10 Users</td>
+                                    <td class="py-4 px-6">
+                                        <a href="#" class="text-sm font-medium text-gray-900 underline underline-offset-2 hover:text-gray-600">View Details</a>
+                                    </td>
+                                    <td class="py-4 px-6 text-right">
+                                        <button class="text-gray-400 hover:text-gray-600">
+                                            <i data-lucide="more-horizontal" class="w-5 h-5"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Bottom padding for scroll -->
+                <div class="h-6"></div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons({
+            strokeWidth: 1.5
+        });
+    </script>
+
+</body></html>
